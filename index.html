@@ -1,416 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="ca">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 25.8.3.2 (Windows)"/>
-	<meta name="created" content="2026-07-14T21:16:55.725943400"/>
-	<meta name="changed" content="2026-07-14T21:23:39.749795600"/>
-	<style type="text/css">
-		@page { size: 21cm 29.7cm; margin: 2cm }
-		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Álvarez | Recursos Didàctics i Matemàtiques</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.1rem;
+            color: #ecf0f1;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background-color: #2980b9;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .robot-icon {
+            width: 50px;
+            height: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+        }
+
+        .card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+        
+        .empty-state {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body lang="ca-ES" link="#000080" vlink="#800000" dir="ltr"><p style="margin-bottom: 0cm; line-height: 100%">
-&lt;!DOCTYPE html&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">&lt;html lang=&quot;ca&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">&lt;head&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;meta
-charset=&quot;UTF-8&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;meta
-name=&quot;viewport&quot; content=&quot;width=device-width,
-initial-scale=1.0&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;title&gt;Elena
-Álvarez | Recursos Didàctics i Matemàtiques&lt;/title&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;style&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        :root {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
---primary-color: #2c3e50;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
---secondary-color: #34495e;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
---accent-color: #3498db;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
---bg-color: #f8f9fa;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
---card-bg: #ffffff;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
---text-color: #333333;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+<body>
 
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        body {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe
-UI&quot;, Roboto, sans-serif;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-line-height: 1.6;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            margin:
-0;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            padding:
-0;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-background-color: var(--bg-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-var(--text-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+    <header>
+        <!-- Imatge d'Astúries -->
+        <img src="perfil.jpg" alt="Elena Álvarez" class="profile-img">
+        <h1>Elena Álvarez</h1>
+        
+        <!-- Text Sobre mi -->
+        <p class="bio">
+            Llicenciada en Física i professora de Matemàtiques. Combino la meva experiència en el sector industrial amb la passió per la docència, dissenyant recursos interactius per apropar les matemàtiques i la ciència a l'alumnat de manera pràctica i visual.
+        </p>
+        
+        <div class="contact-links">
+            <a href="mailto:ealvare1@xtec.cat">Correu Electrònic</a>
+            <a href="https://www.linkedin.com/in/elena-%C3%A1lvarez-8578988/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BAVbOccsXTPiLeeGDmaKD1A%3D%3D" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </header>
 
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        header {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-background-color: var(--primary-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-white;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            padding:
-3rem 1rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-text-align: center;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+    <main>
+        <h2 class="section-title">
+            <img src="robot.png" alt="Icona Robot" class="robot-icon">
+            Recursos Didàctics
+        </h2>
 
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .profile-img
-{</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            width:
-150px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            height:
-150px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-border-radius: 50%;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-object-fit: cover;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            border:
-4px solid white;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-box-shadow: 0 4px 6px rgba(0,0,0,0.1);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-margin-bottom: 1rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+        <div class="grid">
+            <!-- Matemàtiques ESO -->
+            <div class="card">
+                <h3>Matemàtiques ESO</h3>
+                <ul>
+                    <li><a href="monty-hall-guia.html" target="_blank">Guia interactiva: El problema de Monty Hall</a></li>
+                </ul>
+            </div>
 
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        header h1 {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            margin:
-0 0 0.5rem 0;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-font-size: 2.5rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+            <!-- Matemàtiques BAT -->
+            <div class="card">
+                <h3>Matemàtiques BAT</h3>
+                <ul>
+                    <li><a href="https://elenaas-math.github.io/Probabilitat-Bayes/" target="_blank">E-book: Probabilitat i Bayes</a></li>
+                    <li><a href="monty-hall-guia.html" target="_blank">Guia interactiva: El problema de Monty Hall</a></li>
+                </ul>
+            </div>
 
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .bio {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-max-width: 600px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            margin:
-0 auto 1.5rem auto;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-font-size: 1.1rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-#ecf0f1;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+            <!-- Altres -->
+            <div class="card">
+                <h3>Altres</h3>
+                <p class="empty-state">
+                    En aquest apartat aniré penjant recursos i curiositats d'àmbit científic o educatiu.
+                </p>
+            </div>
+        </div>
+    </main>
 
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">       
-.contact-links a {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            display:
-inline-block;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            margin:
-0 10px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            padding:
-10px 20px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-background-color: var(--accent-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-white;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-text-decoration: none;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-border-radius: 5px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-font-weight: bold;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-transition: background-color 0.3s ease;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+    <footer>
+        <p>Aquesta pàgina i els seus materials estan subjectes a una llicència <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca" target="_blank" rel="noopener noreferrer">Creative Commons Reconeixement-NoComercial-SenseObraDerivada 4.0 Internacional (CC BY-NC-ND 4.0)</a>.</p>
+    </footer>
 
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">       
-.contact-links a:hover {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-background-color: #2980b9;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        main {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-max-width: 1000px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            margin:
-3rem auto;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            padding:
-0 1rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">       
-.section-title {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            display:
-flex;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-align-items: center;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-justify-content: center;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            gap:
-15px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-var(--primary-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-margin-bottom: 2rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-font-size: 2rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .robot-icon
-{</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            width:
-50px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            height:
-auto;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .grid {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            display:
-grid;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            gap:
-2rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .card {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-background-color: var(--card-bg);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-border-radius: 8px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            padding:
-2rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-box-shadow: 0 4px 6px rgba(0,0,0,0.05);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-border-top: 4px solid var(--accent-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .card h3 {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-var(--secondary-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-margin-top: 0;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-border-bottom: 2px solid var(--bg-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-padding-bottom: 0.5rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .card ul {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-list-style-type: none;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            padding:
-0;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .card li {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-margin-bottom: 10px;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .card a {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-var(--accent-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-text-decoration: none;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-font-weight: 500;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .card
-a:hover {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-text-decoration: underline;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        .empty-state
-{</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-#7f8c8d;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-font-style: italic;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        footer {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-text-align: center;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            padding:
-2rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-background-color: var(--primary-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-white;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-margin-top: 4rem;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        footer a {</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            color:
-var(--accent-color);</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-text-decoration: none;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        }</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;/style&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">&lt;/head&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">&lt;body&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;header&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;!--
-Imatge d'Astúries --&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;img
-src=&quot;perfil.jpg&quot; alt=&quot;Elena Álvarez&quot;
-class=&quot;profile-img&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;h1&gt;Elena
-Álvarez&lt;/h1&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;!-- Text
-Sobre mi --&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;p
-class=&quot;bio&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">           
-Llicenciada en Física i professora de Matemàtiques. Combino la meva
-experiència en el sector industrial amb la passió per la docència,
-dissenyant recursos interactius per apropar les matemàtiques i la
-ciència a l'alumnat de manera pràctica i visual.</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;/p&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;div
-class=&quot;contact-links&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;a
-href=&quot;mailto:ealvare1@xtec.cat&quot;&gt;Correu Electrònic&lt;/a&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;a
-href=&quot;https://www.linkedin.com/in/elena-%C3%A1lvarez-8578988/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMu7xG4f9Rsyk20glNJt0%2FQ%3D%3D&quot;
-target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;LinkedIn&lt;/a&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;/div&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;/header&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;main&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;h2
-class=&quot;section-title&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;img
-src=&quot;robot.png&quot; alt=&quot;Icona Robot&quot;
-class=&quot;robot-icon&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            Recursos
-Didàctics</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;/h2&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;div
-class=&quot;grid&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;!--
-Matemàtiques ESO --&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">               
-&lt;h3&gt;Matemàtiques ESO&lt;/h3&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">                &lt;ul&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">                   
-&lt;li&gt;&lt;a href=&quot;monty-hall-guia.html&quot;
-target=&quot;_blank&quot;&gt;Guia interactiva: El problema de Monty
-Hall&lt;/a&gt;&lt;/li&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">               
-&lt;/ul&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;/div&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;!--
-Matemàtiques BAT --&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">               
-&lt;h3&gt;Matemàtiques BAT&lt;/h3&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">                &lt;ul&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">                   
-&lt;li&gt;&lt;a
-href=&quot;https://elenaas-math.github.io/Probabilitat-Bayes/&quot;
-target=&quot;_blank&quot;&gt;E-book: Probabilitat i Bayes&lt;/a&gt;&lt;/li&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">                   
-&lt;li&gt;&lt;a href=&quot;monty-hall-guia.html&quot;
-target=&quot;_blank&quot;&gt;Guia interactiva: El problema de Monty
-Hall&lt;/a&gt;&lt;/li&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">               
-&lt;/ul&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;/div&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;!--
-Altres --&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">               
-&lt;h3&gt;Altres&lt;/h3&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">                &lt;p
-class=&quot;empty-state&quot;&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">                   
-En aquest apartat aniré penjant recursos i curiositats d'àmbit
-científic o educatiu.</p>
-<p style="margin-bottom: 0cm; line-height: 100%">                &lt;/p&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">            &lt;/div&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;/div&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;/main&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;footer&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">        &lt;p&gt;Aquesta
-pàgina i els seus materials estan subjectes a una llicència &lt;a
-href=&quot;https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca&quot;
-target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Creative
-Commons Reconeixement-NoComercial-SenseObraDerivada 4.0 Internacional
-(CC BY-NC-ND 4.0)&lt;/a&gt;.&lt;/p&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">    &lt;/footer&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%">&lt;/body&gt;</p>
-<p style="margin-bottom: 0cm; line-height: 100%">&lt;/html&gt;</p>
 </body>
 </html>
