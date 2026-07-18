@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elena Álvarez | Recursos Didàctics i Matemàtiques</title>
+<meta name="description" content="Recursos didàctics de Matemàtiques per a ESO i Batxillerat creats per Elena Álvarez: webapps, jocs i materials interactius.">
+
+<!-- Tipografies: Bricolage Grotesque (títols), Instrument Sans (text), IBM Plex Mono (etiquetes i fórmules) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   VARIABLES DE DISSENY
+   Paleta: taronja com a accent sobre negre càlid i grisos.
+   El taronja fosc (--taronja-text) és per a text petit: compleix el
+   contrast mínim d'accessibilitat WCAG AA sobre fons clar.
+   ========================================================================== */
+:root{
+  --paper:        #FAFAF7;   /* fons clar general */
+  --ink:          #1A1814;   /* negre càlid: text principal */
+  --ink-soft:     #5C574F;   /* gris fosc: text secundari */
+  --line:         #E6E2DA;   /* línies i vores subtils */
+  --taronja:      #EA5B0C;   /* accent principal (gràfics, elements grans) */
+  --taronja-text: #AC3E00;   /* taronja fosc, segur per a text petit i enllaços */
+  --taronja-suau: #FBEADF;   /* fons de les etiquetes */
+  --fosc:         #14120F;   /* fons de capçalera i peu */
+  --fosc-2:       #211E19;   /* targetes sobre fons fosc */
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --body:    "Instrument Sans", system-ui, sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, monospace;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+}
+
+body{
+  font-family:var(--body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  font-size:1.0625rem;
+}
+
+a{ color:var(--taronja-text); }
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:3px solid var(--taronja);
+  outline-offset:2px;
+  border-radius:4px;
+}
+
+.contenidor{ max-width:1060px; margin:0 auto; padding:0 1.25rem; }
+
+/* ==========================================================================
+   SELECTOR D'IDIOMA (a dalt de tot, a la dreta)
+   ========================================================================== */
+.barra-idioma{
+  position:relative; z-index:2;
+  display:flex; justify-content:flex-end; gap:.35rem;
+  padding-top:1.1rem;
+}
+.idioma{
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.05em;
+  background:transparent; border:1.5px solid #4A453D; color:#B8B2A8;
+  padding:.35rem .7rem; border-radius:999px; cursor:pointer;
+  transition:color .15s ease, border-color .15s ease, background .15s ease;
+}
+.idioma:hover{ color:var(--taronja); border-color:var(--taronja); }
+.idioma[aria-pressed="true"]{
+  background:var(--taronja); border-color:var(--taronja); color:var(--fosc);
+  font-weight:500;
+}
+
+/* ==========================================================================
+   CAPÇALERA (HERO)
+   Fons negre amb quadrícula de paper mil·limetrat i una corba taronja:
+   l'element de marca de la pàgina, un guiny a "all you need is ∫".
+   ========================================================================== */
+header{
+  background:
+    linear-gradient(rgba(234,91,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234,91,12,.045) 1px, transparent 1px),
+    var(--fosc);
+  background-size:36px 36px, 36px 36px, auto;
+  color:#F4F1EC;
+  position:relative;
+  overflow:hidden;
+}
+.corba{
+  position:absolute; inset:auto 0 0 0; width:100%; height:46%;
+  pointer-events:none; opacity:.9;
+}
+.hero{
+  position:relative;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:2.5rem;
+  align-items:center;
+  padding:2.6rem 0 4.5rem;
+}
+.foto{
+  width:190px; height:190px; border-radius:50%;
+  object-fit:cover; object-position:top;
+  border:4px solid var(--taronja);
+  box-shadow:0 0 0 8px rgba(234,91,12,.14);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+/* 1) Efecte lupa suau sobre la foto de perfil */
+.foto:hover{
+  transform:scale(1.07);
+  box-shadow:0 0 0 10px rgba(234,91,12,.22);
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.8rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--taronja);
+  margin-bottom:.6rem;
+}
+h1{
+  font-family:var(--display);
+  font-size:clamp(2.3rem, 5vw, 3.4rem);
+  font-weight:700; line-height:1.05;
+  margin-bottom:1rem;
+}
+.formula{
+  font-family:var(--mono);
+  color:#B8B2A8; font-size:.95rem;
+  margin-bottom:1.1rem;
+}
+.formula .int{ color:var(--taronja); font-size:1.2em; }
+.bio{ max-width:56ch; color:#D8D3CB; margin-bottom:1.6rem; }
+.contacte{ display:flex; flex-wrap:wrap; gap:.75rem; }
+.boto{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-family:var(--mono); font-size:.85rem; font-weight:500;
+  text-decoration:none; padding:.65rem 1.1rem; border-radius:999px;
+  transition:transform .15s ease, background .15s ease;
+}
+.boto:hover{ transform:translateY(-2px); }
+.boto-ple{ background:var(--taronja); color:#14120F; }
+.boto-ple:hover{ background:#FF6E1A; }
+.boto-buit{ border:1.5px solid #4A453D; color:#F4F1EC; }
+.boto-buit:hover{ border-color:var(--taronja); color:var(--taronja); }
+
+/* ==========================================================================
+   SECCIÓ DE RECURSOS
+   ========================================================================== */
+main{ padding:3.5rem 0 4rem; }
+.titol-seccio{
+  display:flex; align-items:center; gap:1rem; margin-bottom:.5rem;
+}
+/* 1) El robot creix força en passar-hi el cursor per sobre, per poder-lo veure bé */
+.titol-seccio img{
+  width:56px; height:56px; border-radius:12px; object-fit:cover; object-position:top;
+  border:2px solid var(--line);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  transform-origin:top left;
+  position:relative;
+}
+.titol-seccio img:hover{
+  transform:scale(3.2);
+  border-color:var(--taronja);
+  box-shadow:0 12px 30px rgba(26,24,20,.25);
+  z-index:10;
+}
+h2{
+  font-family:var(--display);
+  font-size:clamp(1.7rem, 3.5vw, 2.2rem);
+  font-weight:700;
+}
+.subtitol{ color:var(--ink-soft); margin-bottom:2rem; max-width:60ch; }
+
+/* Cercador i filtres */
+.controls{
+  display:flex; flex-wrap:wrap; gap:.75rem; align-items:center;
+  margin-bottom:2rem;
+}
+.cerca{ position:relative; flex:1 1 260px; }
+.cerca input{
+  width:100%; padding:.75rem 1rem .75rem 2.6rem;
+  font-family:var(--body); font-size:1rem;
+  border:1.5px solid var(--line); border-radius:12px;
+  background:#fff; color:var(--ink);
+}
+.cerca input::placeholder{ color:#9A948A; }
+.cerca svg{
+  position:absolute; left:.9rem; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; stroke:#9A948A;
+}
+.filtres{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.filtre{
+  font-family:var(--mono); font-size:.82rem;
+  padding:.5rem .95rem; border-radius:999px; cursor:pointer;
+  border:1.5px solid var(--line); background:#fff; color:var(--ink-soft);
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.filtre:hover{ border-color:var(--taronja); color:var(--taronja-text); }
+.filtre[aria-pressed="true"]{
+  background:var(--ink); border-color:var(--ink); color:#fff;
+}
+
+/* ==========================================================================
+   GRAELLA DE TARGETES AMB MINIATURA
+   Les miniatures tenen fons blanc: per integrar-les amb elegància,
+   la zona d'imatge té un degradat càlid molt subtil i una línia inferior,
+   de manera que el blanc de la il·lustració queda dins un marc coherent.
+   ========================================================================== */
+.graella{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:1.25rem;
+}
+.targeta{
+  display:flex; flex-direction:column;
+  background:#fff; border:1.5px solid var(--line); border-radius:16px;
+  overflow:hidden;                       /* perquè la miniatura no surti del marc arrodonit */
+  text-decoration:none; color:inherit;
+  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.targeta:hover{
+  transform:translateY(-3px);
+  border-color:var(--taronja);
+  box-shadow:0 10px 24px rgba(26,24,20,.08);
+}
+.mini{
+  background:linear-gradient(160deg, #FFFFFF 0%, #FBF4EE 100%);
+  border-bottom:1.5px solid var(--line);
+  padding:1rem 1.25rem;
+  display:flex; align-items:center; justify-content:center;
+  aspect-ratio:16 / 10;
+  overflow:hidden;
+}
+.mini img{
+  max-width:100%; max-height:100%; object-fit:contain;
+  transition:transform .3s ease;
+}
+/* 1) La miniatura també fa un zoom suau quan la targeta rep el cursor */
+.targeta:hover .mini img{ transform:scale(1.08); }
+
+.cos-targeta{
+  display:flex; flex-direction:column; gap:.6rem; flex:1;
+  padding:1.2rem 1.4rem 1.2rem;
+}
+.tipus{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--taronja-text);
+}
+.targeta h3{
+  font-family:var(--display); font-size:1.25rem; font-weight:600;
+  line-height:1.25;
+}
+.targeta p{ font-size:.95rem; color:var(--ink-soft); flex:1; }
+.peu-targeta{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:.4rem;
+}
+.etiquetes{ display:flex; gap:.4rem; }
+.etiqueta{
+  font-family:var(--mono); font-size:.72rem;
+  background:var(--taronja-suau); color:var(--taronja-text);
+  padding:.2rem .6rem; border-radius:999px;
+}
+.fletxa{ color:var(--taronja); font-size:1.2rem; transition:transform .15s ease; }
+.targeta:hover .fletxa{ transform:translateX(4px); }
+
+.buit{
+  grid-column:1 / -1; text-align:center; padding:3rem 1rem;
+  color:var(--ink-soft); font-size:1rem;
+  border:1.5px dashed var(--line); border-radius:16px;
+}
+
+/* ==========================================================================
+   PEU DE PÀGINA
+   ========================================================================== */
+footer{
+  background:var(--fosc); color:#B8B2A8;
+  padding:2.5rem 0; font-size:.9rem;
+}
+.peu{
+  display:flex; flex-wrap:wrap; gap:1.5rem;
+  justify-content:space-between; align-items:center;
+}
+footer a{ color:#F4F1EC; }
+footer a:hover{ color:var(--taronja); }
+.llicencia{ display:flex; align-items:center; flex-wrap:wrap; gap:.15rem; max-width:60ch; }
+.llicencia img{
+  max-width:1em; max-height:1em; margin-left:.2em; vertical-align:middle;
+  filter:invert(85%);
+}
+
+/* ==========================================================================
+   ADAPTACIÓ A MÒBIL
+   ========================================================================== */
+@media (max-width: 680px){
+  .hero{ grid-template-columns:1fr; text-align:center; justify-items:center; padding:2rem 0 3.5rem; }
+  .foto{ width:150px; height:150px; }
+  .bio{ margin-inline:auto; }
+  .contacte{ justify-content:center; }
+  .controls{ flex-direction:column; align-items:stretch; }
+  .filtres{ justify-content:center; }
+  .peu{ flex-direction:column; text-align:center; }
+  /* En mòbil no hi ha cursor: el zoom del robot es limita perquè no tapi el títol */
+  .titol-seccio img:hover{ transform:scale(1.6); }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= CAPÇALERA / PERFIL ======================= -->
+<header>
+  <!-- Corba de funció decorativa (element de marca) -->
+  <svg class="corba" viewBox="0 0 1200 260" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,240 C150,240 220,60 380,100 C540,140 590,225 760,180 C930,135 1000,30 1200,55"
+          fill="none" stroke="#EA5B0C" stroke-width="3" opacity="0.85"/>
+    <path d="M0,240 C150,240 220,60 380,100 C540,140 590,225 760,180 C930,135 1000,30 1200,55 L1200,260 L0,260 Z"
+          fill="#EA5B0C" opacity="0.06"/>
+  </svg>
+
+  <!-- 2) Selector d'idioma: Català / Castellano / English -->
+  <div class="contenidor barra-idioma" role="group" aria-label="Idioma / Language">
+    <button class="idioma" data-lang="ca" aria-pressed="true">CAT</button>
+    <button class="idioma" data-lang="es" aria-pressed="false">ESP</button>
+    <button class="idioma" data-lang="en" aria-pressed="false">ENG</button>
+  </div>
+
+  <div class="contenidor hero">
+    <img class="foto" src="perfil.jpg" data-i18n-alt="altFoto" alt="Elena Álvarez, somrient a la costa asturiana amb una samarreta matemàtica">
+    <div>
+      <p class="eyebrow" data-i18n="eyebrow">Professora de Matemàtiques · ESO i Batxillerat</p>
+      <h1>Elena Álvarez</h1>
+      <p class="formula">all you need is <span class="int">∫</span></p>
+      <p class="bio" data-i18n="bio">
+        Llicenciada en Física i professora de Matemàtiques. Combino la meva experiència en el sector industrial i en l'àmbit educatiu, amb la passió per les Matemàtiques, dissenyant recursos útils i visuals que les facin més properes i apassionants.
+      </p>
+      <nav class="contacte" aria-label="Contacte">
+        <a class="boto boto-ple" href="mailto:ealvare1@xtec.cat" data-i18n="btnMail">✉ Correu electrònic</a>
+        <a class="boto boto-buit" href="https://www.linkedin.com/in/elena-%C3%A1lvarez-8578988/" target="_blank" rel="noopener">in → LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= RECURSOS DIDÀCTICS ======================= -->
+<main class="contenidor">
+  <div class="titol-seccio">
+    <img src="robot.jpg" alt="Robot construït amb peces mecàniques reciclades">
+    <h2 id="recursos" data-i18n="titolSeccio">Recursos didàctics</h2>
+  </div>
+  <p class="subtitol" data-i18n="subtitol">
+    Un repositori viu de webapps, jocs i materials que vaig creant per a l'aula.
+    Cerca per paraula clau o filtra per etapa educativa.
+  </p>
+
+  <!-- Cercador i filtres -->
+  <div class="controls">
+    <div class="cerca">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+      </svg>
+      <input type="search" id="camp-cerca" placeholder="Cerca un recurs (p. ex. «funcions», «probabilitat»)…"
+             aria-label="Cerca un recurs">
+    </div>
+    <div class="filtres" id="filtres" role="group" aria-label="Filtra per etapa"></div>
+  </div>
+
+  <!-- Les targetes es generen automàticament des de la llista RECURSOS (vegeu el codi de sota) -->
+  <div class="graella" id="graella" aria-live="polite"></div>
+</main>
+
+<!-- ======================= PEU: LLICÈNCIA ======================= -->
+<footer>
+  <div class="contenidor peu">
+    <p class="llicencia">
+      <a href="https://elenaas-math.github.io/">Autoria:</a>&nbsp;© 2026 by
+      <a href="https://elenaas-math.github.io/">&nbsp;Elena Álvarez Spagnolo&nbsp;</a> is licensed under
+      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">&nbsp;CC BY-NC-ND 4.0</a>
+      <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="Creative Commons">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="Reconeixement">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="No comercial">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="Sense obra derivada">
+    </p>
+    <p><a href="mailto:ealvare1@xtec.cat">ealvare1@xtec.cat</a></p>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   TEXTOS DE LA INTERFÍCIE EN 3 IDIOMES
+   ─────────────────────────────────────────────────────────────────────────
+   ✏️ Si vols retocar alguna traducció, canvia el text aquí i ja està.
+   ========================================================================== */
+const TEXTOS = {
+  ca: {
+    eyebrow: "Professora de Matemàtiques · ESO i Batxillerat",
+    bio: "Llicenciada en Física i professora de Matemàtiques. Combino la meva experiència en el sector industrial i en l'àmbit educatiu, amb la passió per les Matemàtiques, dissenyant recursos útils i visuals que les facin més properes i apassionants.",
+    btnMail: "✉ Correu electrònic",
+    titolSeccio: "Recursos didàctics",
+    subtitol: "Un repositori viu de webapps, jocs i materials que vaig creant per a l'aula. Cerca per paraula clau o filtra per etapa educativa.",
+    placeholder: "Cerca un recurs (p. ex. «funcions», «probabilitat»)…",
+    ariaCerca: "Cerca un recurs",
+    buit: "Cap recurs no coincideix amb la cerca. Prova amb una altra paraula o canvia el filtre.",
+    altFoto: "Elena Álvarez, somrient a la costa asturiana amb una samarreta matemàtica",
+    filtres: { Tots: "Tots", ESO: "ESO", BAT: "BAT", Altres: "Altres" },
+    tipus:   { Joc: "Joc", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" }
+  },
+  es: {
+    eyebrow: "Profesora de Matemáticas · ESO y Bachillerato",
+    bio: "Licenciada en Física y profesora de Matemáticas. Combino mi experiencia en el sector industrial y en el ámbito educativo con la pasión por las Matemáticas, diseñando recursos útiles y visuales que las hagan más cercanas y apasionantes.",
+    btnMail: "✉ Correo electrónico",
+    titolSeccio: "Recursos didácticos",
+    subtitol: "Un repositorio vivo de webapps, juegos y materiales que voy creando para el aula. Busca por palabra clave o filtra por etapa educativa.",
+    placeholder: "Busca un recurso (p. ej. «funciones», «probabilidad»)…",
+    ariaCerca: "Busca un recurso",
+    buit: "Ningún recurso coincide con la búsqueda. Prueba con otra palabra o cambia el filtro.",
+    altFoto: "Elena Álvarez, sonriendo en la costa asturiana con una camiseta matemática",
+    filtres: { Tots: "Todos", ESO: "ESO", BAT: "BACH", Altres: "Otros" },
+    tipus:   { Joc: "Juego", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" }
+  },
+  en: {
+    eyebrow: "Mathematics Teacher · Secondary & Baccalaureate",
+    bio: "Physics graduate and Mathematics teacher. I combine my experience in industry and in education with a passion for Mathematics, designing useful, visual resources that make it more approachable and exciting.",
+    btnMail: "✉ Email",
+    titolSeccio: "Teaching resources",
+    subtitol: "A living repository of webapps, games and materials I create for the classroom. Search by keyword or filter by educational stage.",
+    placeholder: "Search for a resource (e.g. “functions”, “probability”)…",
+    ariaCerca: "Search for a resource",
+    buit: "No resources match your search. Try another word or change the filter.",
+    altFoto: "Elena Álvarez, smiling on the Asturian coast wearing a maths T-shirt",
+    filtres: { Tots: "All", ESO: "ESO", BAT: "BAC", Altres: "Others" },
+    tipus:   { Joc: "Game", WebApp: "WebApp", "E-book": "E-book", Informe: "Report" }
+  }
+};
+
+/* ==========================================================================
+   LLISTA DE RECURSOS
+   ─────────────────────────────────────────────────────────────────────────
+   ✏️ PER AFEGIR UN RECURS NOU: copia un bloc { ... }, enganxa'l a la llista
+   (separat per una coma) i canvia'n els valors.
+
+   Camps:
+   · titol   → nom del recurs (igual en tots els idiomes)
+   · desc    → descripció en cada idioma: { ca: "…", es: "…", en: "…" }
+   · url     → enllaç al recurs
+   · img     → nom del fitxer de la miniatura (puja'l al repositori)
+   · etapes  → una o més d'entre: "ESO", "BAT", "Altres"
+   · tipus   → una d'entre: "Joc", "WebApp", "E-book", "Informe"
+   ========================================================================== */
+const RECURSOS = [
+  {
+    titol: "MathRise",
+    desc: {
+      ca: "Millora el càlcul mental jugant: reptes progressius per guanyar velocitat i confiança amb els nombres.",
+      es: "Mejora el cálculo mental jugando: retos progresivos para ganar velocidad y confianza con los números.",
+      en: "Improve mental arithmetic through play: progressive challenges to build speed and confidence with numbers."
+    },
+    url: "https://elenaas-math.github.io/MathRise/",
+    img: "MathRise_miniatura.jpg",
+    etapes: ["ESO"],
+    tipus: "Joc"
+  },
+  {
+    titol: "Combina!",
+    desc: {
+      ca: "Entrena't amb les operacions combinades i la jerarquia d'operacions a través del joc.",
+      es: "Entrénate con las operaciones combinadas y la jerarquía de operaciones a través del juego.",
+      en: "Practise combined operations and the order of operations through play."
+    },
+    url: "https://elenaas-math.github.io/Joc-operacions-combinades/",
+    img: "Operacions combinades_miniatura.jpg",
+    etapes: ["ESO"],
+    tipus: "Joc"
+  },
+  {
+    titol: "Potenciat plegant paper",
+    desc: {
+      ca: "Descobreix el creixement exponencial i les potències plegant paper, pas a pas.",
+      es: "Descubre el crecimiento exponencial y las potencias plegando papel, paso a paso.",
+      en: "Discover exponential growth and powers by folding paper, step by step."
+    },
+    url: "https://elenaas-math.github.io/potencies-5E/",
+    img: "Potenciat_Miniatura.jpg",
+    etapes: ["ESO"],
+    tipus: "WebApp"
+  },
+  {
+    titol: "El problema de Monty Hall",
+    desc: {
+      ca: "El clàssic dilema de les tres portes: intuïció contra probabilitat. Juga-hi i comprova-ho tu mateix/a.",
+      es: "El clásico dilema de las tres puertas: intuición contra probabilidad. Juega y compruébalo por ti mismo/a.",
+      en: "The classic three-door dilemma: intuition versus probability. Play and see for yourself."
+    },
+    url: "https://elenaas-math.github.io/Monty-Hall/",
+    img: "Monty Hall_miniatura.jpg",
+    etapes: ["ESO", "BAT"],
+    tipus: "WebApp"
+  },
+  {
+    titol: "Entrenador de funcions",
+    desc: {
+      ca: "Entrena't amb les funcions, visualitzant-les i practicant.",
+      es: "Entrénate con las funciones, visualizándolas y practicando.",
+      en: "Train with functions by visualising them and practising."
+    },
+    url: "https://elenaas-math.github.io/Entrenador-de-funcions/",
+    img: "Funcions_Miniatura.jpg",
+    etapes: ["BAT"],
+    tipus: "WebApp"
+  },
+  {
+    titol: "Probabilitat i Bayes",
+    desc: {
+      ca: "E-book interactiu per entendre la probabilitat condicionada i el teorema de Bayes amb exemples propers.",
+      es: "E-book interactivo para entender la probabilidad condicionada y el teorema de Bayes con ejemplos cercanos.",
+      en: "Interactive e-book to understand conditional probability and Bayes' theorem with everyday examples."
+    },
+    url: "https://elenaas-math.github.io/Probabilitat-Bayes/",
+    img: "Probabilitat_Miniatura.jpg",
+    etapes: ["BAT"],
+    tipus: "E-book"
+  },
+  {
+    titol: "Conflicte docent",
+    desc: {
+      ca: "Vols saber què ha passat i com està el conflicte docent?",
+      es: "¿Quieres saber qué ha pasado y cómo está el conflicto docente?",
+      en: "Want to know what has happened and where the teachers' dispute stands?"
+    },
+    url: "https://elenaas-math.github.io/Informe-conflicte-docent/",
+    img: "Conflicte docent_Miniatura.jpg",
+    etapes: ["Altres"],
+    tipus: "Informe"
+  }
+];
+
+/* ==========================================================================
+   LÒGICA D'IDIOMA, CERCA I FILTRES (no cal tocar res d'aquí en endavant)
+   ========================================================================== */
+const graella   = document.getElementById("graella");
+const filtresEl = document.getElementById("filtres");
+const campCerca = document.getElementById("camp-cerca");
+
+let idioma      = "ca";
+let filtreActiu = "Tots";
+let textCerca   = "";
+
+// Recupera l'idioma triat en visites anteriors (si el navegador ho permet)
+try{
+  const desat = localStorage.getItem("idioma");
+  if (desat && TEXTOS[desat]) idioma = desat;
+}catch(e){ /* si l'emmagatzematge no està disponible, es fa servir el català */ }
+
+// Normalitza el text per cercar sense tenir en compte accents ni majúscules
+const normalitza = t => t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+// Aplica els textos de l'idioma actiu a tota la pàgina
+function aplicaIdioma(){
+  const t = TEXTOS[idioma];
+  document.documentElement.lang = idioma;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.textContent = t[el.dataset.i18n];
+  });
+  document.querySelectorAll("[data-i18n-alt]").forEach(el => {
+    el.alt = t[el.dataset.i18nAlt];
+  });
+  campCerca.placeholder = t.placeholder;
+  campCerca.setAttribute("aria-label", t.ariaCerca);
+  document.querySelectorAll(".idioma").forEach(b => {
+    b.setAttribute("aria-pressed", String(b.dataset.lang === idioma));
+  });
+  try{ localStorage.setItem("idioma", idioma); }catch(e){ /* no passa res */ }
+}
+
+// Crea els botons de filtre amb el recompte de recursos de cada etapa
+function pintaFiltres(){
+  const t = TEXTOS[idioma];
+  const etapes = ["Tots", "ESO", "BAT", "Altres"];
+  filtresEl.innerHTML = "";
+  etapes.forEach(etapa => {
+    const n = etapa === "Tots"
+      ? RECURSOS.length
+      : RECURSOS.filter(r => r.etapes.includes(etapa)).length;
+    const b = document.createElement("button");
+    b.className = "filtre";
+    b.textContent = `${t.filtres[etapa]} (${n})`;
+    b.setAttribute("aria-pressed", String(etapa === filtreActiu));
+    b.addEventListener("click", () => {
+      filtreActiu = etapa;
+      pintaFiltres();
+      pintaTargetes();
+    });
+    filtresEl.appendChild(b);
+  });
+}
+
+// Dibuixa les targetes que compleixen el filtre i la cerca
+function pintaTargetes(){
+  const t = TEXTOS[idioma];
+  const visibles = RECURSOS.filter(r => {
+    const passaFiltre = filtreActiu === "Tots" || r.etapes.includes(filtreActiu);
+    const textos = normalitza(`${r.titol} ${r.desc[idioma]} ${t.tipus[r.tipus]} ${r.etapes.map(e => t.filtres[e]).join(" ")}`);
+    const passaCerca = textos.includes(normalitza(textCerca));
+    return passaFiltre && passaCerca;
+  });
+
+  if (visibles.length === 0){
+    graella.innerHTML = `<p class="buit">${t.buit}</p>`;
+    return;
+  }
+
+  graella.innerHTML = visibles.map(r => `
+    <a class="targeta" href="${r.url}" target="_blank" rel="noopener">
+      <span class="mini"><img src="${r.img}" alt="" loading="lazy"></span>
+      <span class="cos-targeta">
+        <span class="tipus">${t.tipus[r.tipus]}</span>
+        <h3>${r.titol}</h3>
+        <p>${r.desc[idioma]}</p>
+        <span class="peu-targeta">
+          <span class="etiquetes">${r.etapes.map(e => `<span class="etiqueta">${t.filtres[e]}</span>`).join("")}</span>
+          <span class="fletxa" aria-hidden="true">→</span>
+        </span>
+      </span>
+    </a>
+  `).join("");
+}
+
+// Botons d'idioma
+document.querySelectorAll(".idioma").forEach(b => {
+  b.addEventListener("click", () => {
+    idioma = b.dataset.lang;
+    aplicaIdioma();
+    pintaFiltres();
+    pintaTargetes();
+  });
+});
+
+campCerca.addEventListener("input", e => {
+  textCerca = e.target.value;
+  pintaTargetes();
+});
+
+aplicaIdioma();
+pintaFiltres();
+pintaTargetes();
+</script>
+</body>
+</html>
