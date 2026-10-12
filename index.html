@@ -295,6 +295,35 @@ footer a:hover{ color:var(--taronja); }
   filter:invert(85%);
 }
 
+/* Botó "Autoria ⓘ": obre la declaració d'ús d'IA */
+.autoria{
+  background:none; border:0; padding:0; cursor:pointer;
+  font:inherit; color:#F4F1EC;
+  text-decoration:underline dotted; text-underline-offset:3px;
+}
+.autoria:hover{ color:var(--taronja); }
+.autoria .icona-info{ font-size:.95em; margin-left:.15em; }
+
+/* Finestra emergent amb la declaració d'ús d'IA (atribut popover, sense JavaScript).
+   margin:auto la centra: cal posar-lo perquè el reset * { margin:0 } l'anul·laria. */
+.declaracio-ia{
+  margin:auto; max-width:min(34rem, calc(100% - 2rem));
+  padding:1.4rem 1.6rem;
+  background:var(--paper); color:var(--ink);
+  border:2px solid var(--taronja); border-radius:16px;
+  box-shadow:0 20px 50px rgba(20,18,15,.35);
+  font-family:var(--body); font-size:1rem; line-height:1.6; text-align:left;
+}
+.declaracio-ia::backdrop{ background:rgba(20,18,15,.55); }
+.declaracio-ia p{ margin-bottom:1rem; }
+.declaracio-ia strong{ color:var(--taronja-text); }
+.tanca{
+  font-family:var(--mono); font-size:.85rem; font-weight:500;
+  background:var(--taronja); color:var(--fosc);
+  border:0; border-radius:999px; padding:.5rem 1.1rem; cursor:pointer;
+}
+.tanca:hover{ background:#FF6E1A; }
+
 /* ==========================================================================
    ADAPTACIÓ A MÒBIL
    ========================================================================== */
@@ -378,7 +407,9 @@ footer a:hover{ color:var(--taronja); }
 <footer>
   <div class="contenidor peu">
     <p class="llicencia">
-      <a href="https://elenaas-math.github.io/">Autoria:</a>&nbsp;© 2026 by
+      <button type="button" class="autoria" popovertarget="declaracio-ia"
+              data-i18n-aria="ariaAutoria" aria-label="Autoria: mostra la declaració d’ús d’IA"
+              data-i18n-title="titleAutoria" title="Mostra la declaració d’ús d’IA"><span data-i18n="autoria">Autoria</span><span class="icona-info" aria-hidden="true">ⓘ</span>:</button>&nbsp;© 2026 by
       <a href="https://elenaas-math.github.io/">&nbsp;Elena Álvarez Spagnolo&nbsp;</a> is licensed under
       <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">&nbsp;CC BY-NC-ND 4.0</a>
       <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="Creative Commons">
@@ -390,6 +421,12 @@ footer a:hover{ color:var(--taronja); }
   </div>
 </footer>
 
+<!-- ======================= DECLARACIÓ D'ÚS D'IA (s'obre en clicar "Autoria ⓘ") ======================= -->
+<div id="declaracio-ia" class="declaracio-ia" popover role="dialog" aria-labelledby="titol-ia">
+  <p><strong id="titol-ia" data-i18n="iaTitol">Declaració d’ús d’IA:</strong> <span data-i18n="iaText">aquest contingut s’ha elaborat amb el suport d’eines d’intel·ligència artificial generativa (Claude; Perplexity; Gemini; ChatGPT) en tasques de redacció, estructuració, revisió, generació d’imatges i programació. L’autora n’ha dissenyat la proposta didàctica i n’ha revisat, adaptat i validat tot el contingut, i n’assumeix la plena responsabilitat.</span></p>
+  <button type="button" class="tanca" popovertarget="declaracio-ia" popovertargetaction="hide" data-i18n="tanca">Tanca</button>
+</div>
+   
 <script>
 /* ==========================================================================
    TEXTOS DE LA INTERFÍCIE EN 3 IDIOMES
@@ -409,7 +446,13 @@ const TEXTOS = {
     altFoto: "Elena Álvarez, somrient a la costa asturiana amb una samarreta matemàtica",
     filtres: { Tots: "Tots", ESO: "ESO", BAT: "BAT", Altres: "Altres" },
     tipus:   { Joc: "Joc", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" }
-  },
+    autoria: "Autoria",
+    ariaAutoria: "Autoria: mostra la declaració d’ús d’IA",
+    titleAutoria: "Mostra la declaració d’ús d’IA",
+    iaTitol: "Declaració d’ús d’IA:",
+    iaText: "aquest contingut s’ha elaborat amb el suport d’eines d’intel·ligència artificial generativa (Claude; Perplexity; Gemini; ChatGPT) en tasques de redacció, estructuració, revisió, generació d’imatges i programació. L’autora n’ha dissenyat la proposta didàctica i n’ha revisat, adaptat i validat tot el contingut, i n’assumeix la plena responsabilitat.",
+    tanca: "Tanca"
+    },
   es: {
     eyebrow: "Profesora de Matemáticas · ESO y Bachillerato",
     bio: "Licenciada en Física y profesora de Matemáticas. Combino mi experiencia en el sector industrial y en el ámbito educativo con la pasión por las Matemáticas, diseñando recursos útiles y visuales que las hagan más cercanas y apasionantes.",
@@ -422,6 +465,12 @@ const TEXTOS = {
     altFoto: "Elena Álvarez, sonriendo en la costa asturiana con una camiseta matemática",
     filtres: { Tots: "Todos", ESO: "ESO", BAT: "BACH", Altres: "Otros" },
     tipus:   { Joc: "Juego", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" }
+    autoria: "Autoría",
+    ariaAutoria: "Autoría: muestra la declaración de uso de IA",
+    titleAutoria: "Muestra la declaración de uso de IA",
+    iaTitol: "Declaración de uso de IA:",
+    iaText: "este contenido se ha elaborado con el apoyo de herramientas de inteligencia artificial generativa (Claude; Perplexity; Gemini; ChatGPT) en tareas de redacción, estructuración, revisión, generación de imágenes y programación. La autora ha diseñado la propuesta didáctica y ha revisado, adaptado y validado todo el contenido, y asume su plena responsabilidad.",
+    tanca: "Cerrar"
   },
   en: {
     eyebrow: "Mathematics Teacher · Secondary & Baccalaureate",
@@ -435,6 +484,12 @@ const TEXTOS = {
     altFoto: "Elena Álvarez, smiling on the Asturian coast wearing a maths T-shirt",
     filtres: { Tots: "All", ESO: "ESO", BAT: "BAC", Altres: "Others" },
     tipus:   { Joc: "Game", WebApp: "WebApp", "E-book": "E-book", Informe: "Report" }
+    autoria: "Authorship",
+    ariaAutoria: "Authorship: show the AI use statement",
+    titleAutoria: "Show the AI use statement",
+    iaTitol: "AI use statement:",
+    iaText: "this content was developed with the support of generative artificial intelligence tools (Claude; Perplexity; Gemini; ChatGPT) for drafting, structuring, reviewing, image generation and programming. The author designed the educational proposal and reviewed, adapted and validated all of the content, and takes full responsibility for it.",
+    tanca: "Close"
   }
 };
 
