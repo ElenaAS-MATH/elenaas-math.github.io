@@ -426,7 +426,7 @@ footer a:hover{ color:var(--taronja); }
   <p><strong id="titol-ia" data-i18n="iaTitol">Declaració d’ús d’IA:</strong> <span data-i18n="iaText">aquest contingut s’ha elaborat amb el suport d’eines d’intel·ligència artificial generativa (Claude; Perplexity; Gemini; ChatGPT) en tasques de redacció, estructuració, revisió, generació d’imatges i programació. L’autora n’ha dissenyat la proposta didàctica i n’ha revisat, adaptat i validat tot el contingut, i n’assumeix la plena responsabilitat.</span></p>
   <button type="button" class="tanca" popovertarget="declaracio-ia" popovertargetaction="hide" data-i18n="tanca">Tanca</button>
 </div>
-   
+
 <script>
 /* ==========================================================================
    TEXTOS DE LA INTERFÍCIE EN 3 IDIOMES
@@ -445,14 +445,14 @@ const TEXTOS = {
     buit: "Cap recurs no coincideix amb la cerca. Prova amb una altra paraula o canvia el filtre.",
     altFoto: "Elena Álvarez, somrient a la costa asturiana amb una samarreta matemàtica",
     filtres: { Tots: "Tots", ESO: "ESO", BAT: "BAT", Altres: "Altres" },
-    tipus:   { Joc: "Joc", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" }
+    tipus:   { Joc: "Joc", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" },
     autoria: "Autoria",
     ariaAutoria: "Autoria: mostra la declaració d’ús d’IA",
     titleAutoria: "Mostra la declaració d’ús d’IA",
     iaTitol: "Declaració d’ús d’IA:",
     iaText: "aquest contingut s’ha elaborat amb el suport d’eines d’intel·ligència artificial generativa (Claude; Perplexity; Gemini; ChatGPT) en tasques de redacció, estructuració, revisió, generació d’imatges i programació. L’autora n’ha dissenyat la proposta didàctica i n’ha revisat, adaptat i validat tot el contingut, i n’assumeix la plena responsabilitat.",
     tanca: "Tanca"
-    },
+  },
   es: {
     eyebrow: "Profesora de Matemáticas · ESO y Bachillerato",
     bio: "Licenciada en Física y profesora de Matemáticas. Combino mi experiencia en el sector industrial y en el ámbito educativo con la pasión por las Matemáticas, diseñando recursos útiles y visuales que las hagan más cercanas y apasionantes.",
@@ -464,7 +464,7 @@ const TEXTOS = {
     buit: "Ningún recurso coincide con la búsqueda. Prueba con otra palabra o cambia el filtro.",
     altFoto: "Elena Álvarez, sonriendo en la costa asturiana con una camiseta matemática",
     filtres: { Tots: "Todos", ESO: "ESO", BAT: "BACH", Altres: "Otros" },
-    tipus:   { Joc: "Juego", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" }
+    tipus:   { Joc: "Juego", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" },
     autoria: "Autoría",
     ariaAutoria: "Autoría: muestra la declaración de uso de IA",
     titleAutoria: "Muestra la declaración de uso de IA",
@@ -483,7 +483,7 @@ const TEXTOS = {
     buit: "No resources match your search. Try another word or change the filter.",
     altFoto: "Elena Álvarez, smiling on the Asturian coast wearing a maths T-shirt",
     filtres: { Tots: "All", ESO: "ESO", BAT: "BAC", Altres: "Others" },
-    tipus:   { Joc: "Game", WebApp: "WebApp", "E-book": "E-book", Informe: "Report" }
+    tipus:   { Joc: "Game", WebApp: "WebApp", "E-book": "E-book", Informe: "Report" },
     autoria: "Authorship",
     ariaAutoria: "Authorship: show the AI use statement",
     titleAutoria: "Show the AI use statement",
@@ -623,6 +623,12 @@ function aplicaIdioma(){
   });
   document.querySelectorAll("[data-i18n-alt]").forEach(el => {
     el.alt = t[el.dataset.i18nAlt];
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+    el.setAttribute("aria-label", t[el.dataset.i18nAria]);
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach(el => {
+    el.title = t[el.dataset.i18nTitle];
   });
   campCerca.placeholder = t.placeholder;
   campCerca.setAttribute("aria-label", t.ariaCerca);
