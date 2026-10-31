@@ -445,7 +445,7 @@ const TEXTOS = {
     buit: "Cap recurs no coincideix amb la cerca. Prova amb una altra paraula o canvia el filtre.",
     altFoto: "Elena Álvarez, somrient a la costa asturiana amb una samarreta matemàtica",
     filtres: { Tots: "Tots", ESO: "ESO", BAT: "BAT", Altres: "Altres" },
-    tipus:   { Joc: "Joc", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" },
+    tipus:   { Joc: "Joc", WebApp: "WebApp", "E-book": "E-book", Apunts: "Apunts", Informe: "Informe" },
     autoria: "Autoria",
     ariaAutoria: "Autoria: mostra la declaració d’ús d’IA",
     titleAutoria: "Mostra la declaració d’ús d’IA",
@@ -464,7 +464,7 @@ const TEXTOS = {
     buit: "Ningún recurso coincide con la búsqueda. Prueba con otra palabra o cambia el filtro.",
     altFoto: "Elena Álvarez, sonriendo en la costa asturiana con una camiseta matemática",
     filtres: { Tots: "Todos", ESO: "ESO", BAT: "BACH", Altres: "Otros" },
-    tipus:   { Joc: "Juego", WebApp: "WebApp", "E-book": "E-book", Informe: "Informe" },
+    tipus:   { Joc: "Juego", WebApp: "WebApp", "E-book": "E-book", Apunts: "Apuntes", Informe: "Informe" },
     autoria: "Autoría",
     ariaAutoria: "Autoría: muestra la declaración de uso de IA",
     titleAutoria: "Muestra la declaración de uso de IA",
@@ -483,7 +483,7 @@ const TEXTOS = {
     buit: "No resources match your search. Try another word or change the filter.",
     altFoto: "Elena Álvarez, smiling on the Asturian coast wearing a maths T-shirt",
     filtres: { Tots: "All", ESO: "ESO", BAT: "BAC", Altres: "Others" },
-    tipus:   { Joc: "Game", WebApp: "WebApp", "E-book": "E-book", Informe: "Report" },
+    tipus:   { Joc: "Game", WebApp: "WebApp", "E-book": "E-book", Apunts: "Notes", Informe: "Report" },
     autoria: "Authorship",
     ariaAutoria: "Authorship: show the AI use statement",
     titleAutoria: "Show the AI use statement",
@@ -505,7 +505,7 @@ const TEXTOS = {
    · url     → enllaç al recurs
    · img     → nom del fitxer de la miniatura (puja'l al repositori)
    · etapes  → una o més d'entre: "ESO", "BAT", "Altres"
-   · tipus   → una d'entre: "Joc", "WebApp", "E-book", "Informe"
+   · tipus   → una d'entre: "Joc", "WebApp", "E-book", "Apunts", "Informe"
    ========================================================================== */
 const RECURSOS = [
   {
@@ -545,6 +545,30 @@ const RECURSOS = [
     tipus: "WebApp"
   },
   {
+    titol: "Radicalitzant-nos",
+    desc: {
+      ca: "Descobreix per a què serveixen les arrels i aprèn a dominar-les a partir d'una seqüència de reptes de la vida real.",
+      es: "Descubre para qué sirven las raíces y aprende a dominarlas a partir de una secuencia de retos de la vida real.",
+      en: "Discover what roots are for and learn to master them through a sequence of real-life challenges."
+    },
+    url: "https://elenaas-math.github.io/Radicals-5E/",
+    img: "Radicals_Miniatura.jpg",
+    etapes: ["ESO"],
+    tipus: "WebApp"
+  },
+  {
+    titol: "Nombres reals: dels apunts a la pràctica",
+    desc: {
+      ca: "Què són els nombres reals? Com es classifiquen? Com es representen? Quin error fem en arrodonir un nombre? Com hi podem operar? Quins problemes podem resoldre? I molt més…",
+      es: "¿Qué son los números reales? ¿Cómo se clasifican? ¿Cómo se representan? ¿Qué error cometemos al redondear un número? ¿Cómo operamos con ellos? ¿Qué problemas podemos resolver? ¡Y mucho más!",
+      en: "What are real numbers? How are they classified? How are they represented? What error do we make when rounding a number? How do we operate with them? What problems can we solve? And much more…"
+    },
+    url: "https://elenaas-math.github.io/Nombres-Reals/",
+    img: "Nombres_Reals_Miniatura.jpg",
+    etapes: ["ESO", "BAT"],
+    tipus: "Apunts"
+  },
+  {
     titol: "El problema de Monty Hall",
     desc: {
       ca: "El clàssic dilema de les tres portes: intuïció contra probabilitat. Juga-hi i comprova-ho tu mateix/a.",
@@ -567,6 +591,18 @@ const RECURSOS = [
     img: "Funcions_Miniatura.jpg",
     etapes: ["BAT"],
     tipus: "WebApp"
+  },
+  {
+    titol: "Matrius: apunts i activitats",
+    desc: {
+      ca: "Recull dels principals sabers i procediments que necessites per preparar el tema de matrius i sistemes d'equacions lineals per a les PAU de MACS II, amb activitats graduades en dificultat.",
+      es: "Recopilación de los principales saberes y procedimientos que necesitas para preparar el tema de matrices y sistemas de ecuaciones lineales para la PAU de MACS II, con actividades graduadas en dificultad.",
+      en: "A collection of the key knowledge and procedures you need to prepare matrices and systems of linear equations for the PAU university entrance exam in Maths for Social Sciences II (MACS II), with activities graded by difficulty."
+    },
+    url: "https://elenaas-math.github.io/Matrius-MACS2/",
+    img: "Matrius_Miniatura.jpg",
+    etapes: ["BAT"],
+    tipus: "Apunts"
   },
   {
     titol: "Probabilitat i Bayes",
